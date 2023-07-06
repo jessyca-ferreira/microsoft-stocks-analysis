@@ -1,0 +1,13 @@
+library(quantmod)
+library(shiny)
+library(shinydashboard)
+library(dplyr)
+library(ggplot2)
+library(DT)
+library(tidyverse)
+library(lubridate)
+
+microsoft_plan <- read.csv('Microsoft_Stock.csv', header = TRUE, sep = ',')
+nomes <- names(microsoft_plan)
+lista_categorias <- c('Open', 'High', 'Low', 'Close')
+microsoft_plan$Date <- strptime(microsoft_plan$Date, format='%Y-%m-%d')
